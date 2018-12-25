@@ -1,32 +1,58 @@
-.App {
-  text-align: center;
+header.masthead {
+  position: relative;
+  background-color: #343a40;
+  background: url("img/bg-masthead.jpg") no-repeat center center;
+  background-size: cover;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+header.masthead .overlay {
+  position: absolute;
+  background-color: #212529;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+header.masthead h1 {
+  font-size: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (min-width: 768px) {
+  header.masthead {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
   }
-  to {
-    transform: rotate(360deg);
+  header.masthead h1 {
+    font-size: 3rem;
   }
+}
+
+.features-icons {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.features-icons .features-icons-item {
+  max-width: 20rem;
+}
+
+.features-icons .features-icons-item .features-icons-icon {
+  height: 7rem;
+}
+
+.features-icons .features-icons-item .features-icons-icon i {
+  font-size: 4.5rem;
+}
+
+.features-icons .features-icons-item:hover .features-icons-icon i {
+  font-size: 5rem;
+}
+
+footer.footer {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
