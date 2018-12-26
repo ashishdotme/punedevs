@@ -14,7 +14,7 @@ class Landing extends Component {
                   Pune Devs
                 </h1>
               </div>
-              <h2 class="lead mb-3">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</h2>
+              <h2 className="lead mb-3">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</h2>
               <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
                 <p>
                   <Link to="/login" className="btn btn-primary my-2 mr-3">
