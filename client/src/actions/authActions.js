@@ -44,4 +44,5 @@ export const logoutUser = () => dispatch => {
   setAuthToken(false);
   // Remove loggedin user
   dispatch(setCurrentUser({}));
+  // Check for expired token
 }

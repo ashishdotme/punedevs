@@ -18,6 +18,12 @@ class Login extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentDidMount(){
+    if(this.props.auth.isAuthenticated){
+      this.props.history.push("/dashboard")
+    }
+  }
+
   componentWillReceiveProps(nextProps){
     if(nextProps.auth.isAuthenticated) {
       this.props.history.push('/dashboard');
@@ -45,7 +51,7 @@ class Login extends Component {
     const {errors} = this.state;
     return (
       <div className="login-form mt-5 mb-5">
-        <form onSubmit={this.onSubmit}>
+        <form noValidate onSubmit={this.onSubmit}>
           <h4 className="modal-title">Login</h4>
           <div className="form-group">
             <input
