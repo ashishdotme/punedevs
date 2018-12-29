@@ -2,24 +2,21 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import { clearCurrentProfile } from "../../actions/profileActions";
 import PropTypes from "prop-types";
 
 class Navbar extends Component {
-  
   onLogoutClick(e) {
     e.preventDefault();
     this.props.logoutUser();
+    this.props.clearCurrentProfile();
   }
 
   render() {
     const { isAuthenticated } = this.props.auth;
     const authLinks = (
       <div className="navbar-nav ml-auto">
-        <a
-          href=""
-          onClick={this.onLogoutClick.bind(this)}
-          className="nav-link"
-        >
+        <a href="" onClick={this.onLogoutClick.bind(this)} className="nav-link">
           Logout
         </a>
       </div>
@@ -53,7 +50,7 @@ class Navbar extends Component {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          {!isAuthenticated ? guestLinks : authLinks }
+          {!isAuthenticated ? guestLinks : authLinks}
         </div>
       </nav>
     );
@@ -71,5 +68,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { logoutUser }
+  { logoutUser, clearCurrentProfile }
 )(Navbar);
