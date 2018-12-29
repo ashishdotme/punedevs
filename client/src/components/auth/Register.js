@@ -3,8 +3,11 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
+
+import { registerUser } from "../../actions/authActions";
+import TextFieldGroup from "../common/TextFieldGroup";
+
 import "./Register.css";
 
 class Register extends Component {
@@ -42,7 +45,6 @@ class Register extends Component {
       password2: this.state.password2
     };
 
-    console.log(newUser);
     this.props.registerUser(newUser, this.props.history);
   }
 
@@ -51,77 +53,75 @@ class Register extends Component {
     const user = this.props.auth.user;
     return (
       <div className="login-form mt-5 mb-5">
-        <form className="needs-validation" onSubmit={this.onSubmit} novalidate>
-          <h4 className="modal-title">Register</h4>
-          <div className="form-group">
-            <input
-              type="text"
-              className={classnames("form-control", {
-                "is-invalid": errors.name
-              })}
-              placeholder="Name"
-              required="required"
-              name="name"
-              value={this.state.name}
-              onChange={this.onChange}
-            />
-            <div className="invalid-feedback">{errors.name}</div>
+        <div className="row">
+          <div className="col-sm-3" />
+          <div className="col-sm-6">
+            <form
+              className="needs-validation"
+              onSubmit={this.onSubmit}
+              noValidate
+            >
+              <h4 className="modal-title">Register</h4>
+              <div className="form-group mt-4">
+                <TextFieldGroup
+                  type="text"
+                  error={errors.name}
+                  placeholder="Enter name"
+                  name="name"
+                  label="Name"
+                  value={this.state.name}
+                  onChange={this.onChange}
+                />
+              </div>
+              <div className="form-group">
+                <TextFieldGroup
+                  type="email"
+                  error={errors.email}
+                  placeholder="Enter email"
+                  name="email"
+                  label="email"
+                  value={this.state.email}
+                  onChange={this.onChange}
+                />
+              </div>
+              <div className="form-group">
+                <TextFieldGroup
+                  type="text"
+                  error={errors.password}
+                  placeholder="Enter password"
+                  name="password"
+                  label="Password"
+                  value={this.state.password}
+                  onChange={this.onChange}
+                />
+              </div>
+              <div className="form-group">
+                <TextFieldGroup
+                  type="text"
+                  error={errors.password2}
+                  placeholder="Enter password again"
+                  name="password2"
+                  label="Confirm Password"
+                  value={this.state.password2}
+                  onChange={this.onChange}
+                />
+              </div>
+              <div className="form-group small clearfix">
+                <label className="checkbox-inline">
+                  <input type="checkbox" /> Remember me
+                </label>
+              </div>
+              <input
+                type="submit"
+                className="btn btn-primary btn-block btn-lg"
+                value="Login"
+              />
+            </form>
+            <div className="text-center small mt-4">
+              Alread have an account? <Link to="/login">Login</Link>
+            </div>
           </div>
-          <div className="form-group">
-            <input
-              type="email"
-              className={classnames("form-control", {
-                "is-invalid": errors.email
-              })}
-              placeholder="Email"
-              required="required"
-              name="email"
-              value={this.state.email}
-              onChange={this.onChange}
-            />
-            <div className="invalid-feedback">{errors.email}</div>
-          </div>
-          <div className="form-group">
-            <input
-              type="password"
-              className={classnames("form-control", {
-                "is-invalid": errors.password
-              })}
-              placeholder="Password"
-              required="required"
-              name="password"
-              value={this.state.password}
-              onChange={this.onChange}
-            />
-            <div className="invalid-feedback">{errors.password}</div>
-          </div>
-          <div className="form-group">
-            <input
-              type="password"
-              className={classnames("form-control", {
-                "is-invalid": errors.password2
-              })}
-              placeholder="Confirm Password"
-              required="required"
-              name="password2"
-              value={this.state.password2}
-              onChange={this.onChange}
-            />
-            <div className="invalid-feedback">{errors.password2}</div>
-          </div>
-          <div className="form-group small clearfix">
-            <label className="checkbox-inline">
-              <input type="checkbox" /> Remember me
-            </label>
-          </div>
-          <input
-            type="submit"
-            className="btn btn-primary btn-block btn-lg"
-            value="Login"
-          />
-        </form>
-        <div className="text-center small">
-          Alread have an account? <Link to="/login">Login</Link>
+          <div className="col-sm-3" />
         </div>
       </div>
     );
