@@ -79,14 +79,14 @@ class Register extends Component {
                   error={errors.email}
                   placeholder="Enter email"
                   name="email"
-                  label="email"
+                  label="Email"
                   value={this.state.email}
                   onChange={this.onChange}
                 />
               </div>
               <div className="form-group">
                 <TextFieldGroup
-                  type="text"
+                  type="password"
                   error={errors.password}
                   placeholder="Enter password"
                   name="password"
@@ -97,7 +97,7 @@ class Register extends Component {
               </div>
               <div className="form-group">
                 <TextFieldGroup
-                  type="text"
+                  type="password"
                   error={errors.password2}
                   placeholder="Enter password again"
                   name="password2"

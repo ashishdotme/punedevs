@@ -72,7 +72,7 @@ class Login extends Component {
               </div>
               <div className="form-group">
                 <TextFieldGroup
-                  type="text"
+                  type="password"
                   error={errors.password}
                   placeholder="Enter password"
                   name="password"
