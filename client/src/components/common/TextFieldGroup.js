@@ -14,7 +14,7 @@ const TextFieldGroup = ({
   disabled
 }) => {
   return (
-    <div>
+    <div className="mt-3">
       <label className="form-control-label" for={name}>
         {label}
       </label>
