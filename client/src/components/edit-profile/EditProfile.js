@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TextFieldGroup from "../common/TextFieldGroup";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import InputGroup from "../common/InputGroup";
@@ -183,6 +184,9 @@ class EditProfile extends Component {
     return (
       <div className="create-profile mt-5 mb-5">
         <div className="container">
+          <Link to="/dashboard" className="btn btn-light">
+            Go back
+          </Link>
           <div className="row">
             <div className="col-md-6 m-auto">
               <h1 className="display-4 text-center">Edit Profile</h1>
