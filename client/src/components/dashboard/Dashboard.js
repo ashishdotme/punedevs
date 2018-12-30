@@ -1,15 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getCurrentProfile } from "../../actions/profileActions";
+import { getCurrentProfile, deleteProfile } from "../../actions/profileActions";
 import Spinner from "../common/Spinner";
 import ProfileActions from "./ProfileActions";
 
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.deleteProfile = this.deleteProfile.bind(this);
+  }
+  deleteProfile() {
+    this.props.deleteProfile();
+  }
   componentDidMount() {
-    if (!this.props.auth.isAuthenticated) {
-      this.props.history.push("/login");
-    }
     this.props.getCurrentProfile();
   }
   render() {
@@ -26,6 +30,10 @@ class Dashboard extends Component {
           <div>
             <p className="lead text-muted">Welcome {user.name}</p>
             <ProfileActions />
+            <div className="mb-5" />
+            <button onClick={this.deleteProfile} className="btn btn-danger">
+              Delete Profile
+            </button>
           </div>
         );
       } else {
@@ -63,5 +71,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getCurrentProfile }
+  { getCurrentProfile, deleteProfile }
 )(Dashboard);
