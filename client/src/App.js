@@ -8,7 +8,8 @@ import Landing from "./components/layout/Landing";
 import Footer from "./components/layout/Footer";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
-import Dashboard from "./components/layout/Dashboard";
+import Dashboard from "./components/dashboard/Dashboard";
+import CreateProfile from "./components/create-profile/CreateProfile";
 
 import "./App.css";
 import store from "./store";
@@ -39,9 +40,16 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <div className="container">
               <Route exact path="/register" component={Register} />
-              <Route exact path="/Login" component={Login} />
+              <Route exact path="/login" component={Login} />
               <Switch>
-                <PrivateRoute exact path="/Dashboard" component={Dashboard} />
+                <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/create-profile"
+                  component={CreateProfile}
+                />
               </Switch>
             </div>
             <Footer />
