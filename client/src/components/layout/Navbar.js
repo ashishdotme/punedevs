@@ -38,6 +38,9 @@ class Navbar extends Component {
         <Link to="/" className="navbar-brand">
           Navbar
         </Link>
+        <Link to="/browse" className="nav-item nav-link">
+          Browse
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
