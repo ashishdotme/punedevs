@@ -28,10 +28,7 @@ class ProfileItem extends Component {
               )}
               <br />
               <br />
-              <Link
-                to={`profile/${profile.handle}`}
-                className="btn btn-primary"
-              >
+              <Link to={`browse/${profile.handle}`} className="btn btn-primary">
                 View Profile
               </Link>
             </div>
@@ -42,7 +39,7 @@ class ProfileItem extends Component {
                   <li
                     key={index}
                     className="card-header"
-                    style={{ "list-style": "none" }}
+                    style={{ listStyle: "none" }}
                   >
                     <i className="fa fa-laptop pr-2" />
                     {skill}
