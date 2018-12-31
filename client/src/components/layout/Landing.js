@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import {connect} from 'react-redux';
+import { connect } from "react-redux";
 
 class Landing extends Component {
-  
-  componentDidMount(){
-    if(this.props.auth.isAuthenticated){
-      this.props.history.push("/dashboard")
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
     }
   }
 
@@ -18,11 +17,13 @@ class Landing extends Component {
           <div className="container">
             <div className="row">
               <div className="col-xl-9 mx-auto">
-                <h1 className="mb-2">
-                  Pune Devs
-                </h1>
+                <h1 className="display-5">Pune Devs</h1>
               </div>
-              <h2 className="lead mb-3">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</h2>
+              <h3 className="text-white">
+                Something short and leading about the collection below—its
+                contents, the creator, etc. Make it short and sweet, but not too
+                short so folks don't simply skip over it entirely.
+              </h3>
               <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
                 <p>
                   <Link to="/login" className="btn btn-primary my-2 mr-3">
@@ -82,9 +83,12 @@ class Landing extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
-})
+});
 
-export default connect(mapStateToProps, {})(Landing);
+export default connect(
+  mapStateToProps,
+  {}
+)(Landing);
