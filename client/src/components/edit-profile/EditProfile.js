@@ -77,7 +77,7 @@ class EditProfile extends Component {
         location: profile.location,
         status: profile.status,
         skills: skillsCSV,
-        githubusername: profile.username,
+        githubusername: profile.githubusername,
         bio: profile.bio,
         twitter: profile.twitter,
         facebook: profile.facebook,

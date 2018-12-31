@@ -16,6 +16,8 @@ import EditProfile from "./components/edit-profile/EditProfile";
 import AddExperience from "./components/add-credentials/AddExperience";
 import AddEducation from "./components/add-credentials/AddEducation";
 import NotFound from "./components/not-found/NotFound";
+import Posts from "./components/posts/Posts";
+import Post from "./components/post/Post";
 
 import "./App.css";
 import store from "./store";
@@ -50,6 +52,8 @@ class App extends Component {
               <Route exact path="/browse" component={Profiles} />
               <Route exact path="/browse/:handle" component={Profile} />
               <Route exact path="/not-found" component={NotFound} />
+              <Route exact path="/feed" component={Posts} />
+              <Route exact path="/post/:id" component={Post} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
               </Switch>

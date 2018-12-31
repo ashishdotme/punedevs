@@ -5,12 +5,14 @@ import {
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
   GET_ERRORS,
+  CLEAR_ERRORS,
   DELETE_PROFILE,
   SET_CURRENT_USER,
   GET_PROFILES
 } from "./types";
 
 export const getCurrentProfile = () => dispatch => {
+  dispatch(clearErrors());
   dispatch(setProfileLoading());
   axios
     .get("/api/profile")
@@ -27,6 +29,7 @@ export const getProfileByHandle = handle => dispatch => {
 };
 
 export const createProfile = (profileData, history) => dispatch => {
+  dispatch(clearErrors());
   axios
     .post("api/profile", profileData)
     .then(res => history.push("/dashboard"))
@@ -39,6 +42,7 @@ export const createProfile = (profileData, history) => dispatch => {
 };
 
 export const addExperience = (expData, history) => dispatch => {
+  dispatch(clearErrors());
   axios
     .post("api/profile/experience", expData)
     .then(res => history.push("/dashboard"))
@@ -68,6 +72,7 @@ export const deleteExperience = id => dispatch => {
 };
 
 export const addEducation = (eduData, history) => dispatch => {
+  dispatch(clearErrors());
   axios
     .post("api/profile/education", eduData)
     .then(res => history.push("/dashboard"))
@@ -141,5 +146,11 @@ export const setProfileLoading = () => {
 export const clearCurrentProfile = () => {
   return {
     type: CLEAR_CURRENT_PROFILE
+  };
+};
+
+export const clearErrors = () => {
+  return {
+    type: CLEAR_ERRORS
   };
 };
